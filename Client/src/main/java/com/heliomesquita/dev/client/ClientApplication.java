@@ -25,7 +25,14 @@ public class ClientApplication {
 		System.out.println("Lista atualizada: ");
 		UserService.printAllUsers();
 		
+		User userPut = new User(12L, "Clodoaldo", "clodoaldo@gmail.com", "994949494", "123456");
 		
+		UserService.updateUserbyId(userPut.getId(), userPut);
+		
+		System.out.println();
+		System.out.println("Lista atualizada: ");
+		UserService.printAllUsers();
+
 		System.out.println();
 		UserService.deleteUserById(2l);
 		
