@@ -45,4 +45,20 @@ public static void postUser(User user) {
 	restTemplate.postForObject("/users", user, User.class);
 	System.out.println("Usuário adicionado: \n" + user);	
 }
+
+public static void deleteUserById(Long id) {
+
+	RestTemplate restTemplate = new RestTemplateBuilder().rootUri("http://localhost:8080").basicAuthentication("teste", "password").build();
+	User user = UserService.findUser(id);
+	restTemplate.delete("/users/" + id);
+	System.out.println("Usuário deletado: \n" + user);
+	
+}
+
+public static void updateUserbyId(Long id, User user) {
+	RestTemplate restTemplate = new RestTemplateBuilder().rootUri("http://localhost:8080").basicAuthentication("teste", "password").build();
+	restTemplate.put("/users/" + id, user);
+	System.out.println("Usuário atualizado: \n" + user);
+}
+
 }
