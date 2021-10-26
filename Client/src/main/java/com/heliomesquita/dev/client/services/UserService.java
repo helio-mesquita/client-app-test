@@ -55,10 +55,4 @@ public static void deleteUserById(Long id) {
 	
 }
 
-public static void updateUserbyId(Long id, User user) {
-	RestTemplate restTemplate = new RestTemplateBuilder().rootUri("http://localhost:8080").basicAuthentication("teste", "password").build();
-	restTemplate.put("/users/" + id, user);
-	System.out.println("Usuário atualizado: \n" + user);
-}
-
 }
