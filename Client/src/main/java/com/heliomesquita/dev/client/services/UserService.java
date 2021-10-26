@@ -34,5 +34,14 @@ public static void printAllUser( ) {
 		for (int i = 0; i < user.length; i ++) {
 			System.out.println(user[i]);
 		}
+	}
+
+public static void postUser(User user) {
+	
+
+	RestTemplate restTemplate = new RestTemplateBuilder().rootUri("http://localhost:8080").basicAuthentication("teste", "password").build();
+	
+	restTemplate.postForObject("/users", user, User.class);
+		
 }
 }
