@@ -15,7 +15,7 @@ public class ClientApplication {
 		
 		System.out.println(UserService.findUser(1L));
 		
-		UserService.printAllUser();
+		UserService.printAllUsers();
 		
 		User user = new User(12L, "Magno Alves", "magnata@gmail.com", "991919191", "1234567");
 		
@@ -23,7 +23,7 @@ public class ClientApplication {
 		
 		System.out.println();
 		System.out.println("Lista atualizada: ");
-		UserService.printAllUser();
+		UserService.printAllUsers();
 		
 	}
 

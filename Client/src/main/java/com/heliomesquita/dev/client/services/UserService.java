@@ -18,7 +18,7 @@ public class UserService {
 		return user;
 	}
 	
-public static User[] findUserList() {
+public static User[] findUsersList() {
 		
 		RestTemplate restTemplate = new RestTemplateBuilder().rootUri("http://localhost:8080").basicAuthentication("teste", "password").build();
 		
@@ -29,11 +29,12 @@ public static User[] findUserList() {
 		
 	}
 
-public static void printAllUser( ) {
-		User[] user = UserService.findUserList();
+public static void printAllUsers( ) {
+		User[] user = UserService.findUsersList();
 		for (int i = 0; i < user.length; i ++) {
 			System.out.println(user[i]);
 		}
+		System.out.println();
 	}
 
 public static void postUser(User user) {
@@ -42,6 +43,6 @@ public static void postUser(User user) {
 	RestTemplate restTemplate = new RestTemplateBuilder().rootUri("http://localhost:8080").basicAuthentication("teste", "password").build();
 	
 	restTemplate.postForObject("/users", user, User.class);
-		
+	System.out.println("Usuário adicionado: \n" + user);	
 }
 }
